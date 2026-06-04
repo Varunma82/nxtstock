@@ -49,4 +49,4 @@ Upload the folder to **Netlify**, **Vercel**, **GitHub Pages**, or any static ho
 
 - **Parvesh Jangra**
 - parvesh0326@gmail.com · bussinessx@nxtstock.in
-- +91 98132 12342
+- +91 95309 96291
