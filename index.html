@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nxt Stock — Performance marketing agency for coaching businesses. Scale with Meta & Google ads." />
+  <title>Nxt Stock – Performance Marketing Agency | Scale Your Coaching Business</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="top-bar" id="topBar">
+    <span>⚡ 3 Strategy Call Slots Left for This Month</span>
+    <button type="button" id="topBarClose" aria-label="Close">✕</button>
+  </div>
+
+  <header class="header" id="header">
+    <div class="container header__row">
+      <a href="#home" class="logo">NXTSTOCK</a>
+      <nav class="nav" id="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#process">Work Process</a>
+        <!-- <a href="#stories">Success Stories</a> -->
+      </nav>
+      <a href="#lead-form" class="btn btn--gradient btn--sm">Talk to an Expert</a>
+      <button class="burger" id="burger" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero__mesh"></div>
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <span class="pill">Performance Marketing Agency</span>
+          <h1>
+            Scale Your <span class="text-gradient">Coaching Business</span><br />
+            With Digital Marketing
+          </h1>
+          <p class="hero__desc">
+            We help coaching brands grow through data-driven strategies, paid ads, and creative solutions that deliver measurable enrollments and ROI.
+          </p>
+          <a href="#lead-form" class="btn btn--gradient btn--lg">Book a Strategy Call →</a>
+          <div class="hero__nums">
+            <div>
+              <strong>20+</strong>
+              <span>Coaching Clients</span>
+            </div>
+            <div>
+              <strong>₹12Cr+</strong>
+              <span>Ad Spend Managed</span>
+            </div>
+            <div>
+              <strong>5★</strong>
+              <span>Client Rating</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__side">
+          <form class="lead-form" id="leadForm" novalidate>
+            <span id="lead-form" class="anchor"></span>
+            <h3>Get your free growth audit</h3>
+            <div class="lead-form__row">
+              <div class="fld">
+                <label for="name">Name *</label>
+                <input id="name" name="name" required placeholder="Your name" />
+              </div>
+              <div class="fld">
+                <label for="city">City *</label>
+                <input id="city" name="city" required placeholder="Your city" />
+              </div>
+            </div>
+            <div class="fld">
+              <label for="coachingType">Coaching type *</label>
+              <select id="coachingType" name="coachingType" required>
+                <option value="" disabled selected>Select</option>
+                <option>Offline</option>
+                <option>Online</option>
+                <option>Both</option>
+              </select>
+            </div>
+            <div class="lead-form__row">
+              <div class="fld">
+                <label for="phone">Phone *</label>
+                <input id="phone" name="phone" type="tel" required placeholder="98XXXXXXXX" />
+              </div>
+              <div class="fld">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" required placeholder="you@coaching.com" />
+              </div>
+            </div>
+            <div class="fld">
+              <label for="niche">Niche (optional)</label>
+              <input id="niche" name="niche" placeholder="Stock market, fitness…" />
+            </div>
+            <button type="submit" class="btn btn--gradient btn--full" id="submitBtn">
+              <span class="btn__txt">Book Free Call →</span>
+              <span class="btn__load" hidden></span>
+            </button>
+            <p class="form-msg" id="formStatus"></p>
+          </form>
+        </div>
+      </div>
+      <a href="#services" class="scroll-down"><span>SCROLL</span> ↓</a>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <p class="label">WHAT WE DO</p>
+        <h2 class="h2">Services That Drive <span class="text-gradient">Growth</span></h2>
+        <div class="svc-grid">
+          <article class="svc-card">
+            <h3>Performance Marketing</h3>
+            <p>Full-funnel paid campaigns for coaches — webinars, discovery calls, and enrollments across Meta and Google.</p>
+          </article>
+          <article class="svc-card">
+            <h3>Meta & Google Ads</h3>
+            <p>Reach students on Facebook, Instagram, YouTube, Search, and Display with targeting built for education brands.</p>
+          </article>
+          <article class="svc-card">
+            <h3>Social Media Management</h3>
+            <p>Content and ads that build trust before the sale — perfect for coaching brands growing organic + paid.</p>
+          </article>
+          <article class="svc-card">
+            <h3>Funnels & Landing Pages</h3>
+            <p>Fast, mobile-first pages with SEO basics and tracking so every rupee ties to a qualified lead.</p>
+          </article>
+          <article class="svc-card">
+            <h3>Creative Design</h3>
+            <p>Scroll-stopping creatives and ad copy that make competitors jealous and students ready to enroll.</p>
+          </article>
+          <article class="svc-card svc-card--hot">
+            <span class="hot-badge">↑ 380% Growth</span>
+            <h3>CRM & Lead Automation</h3>
+            <p>Instant lead routing, WhatsApp follow-ups, and sales workflows so every inquiry turns into a booked call.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="section section--alt approach">
+      <div class="container approach__wrap">
+        <div class="approach__copy">
+          <p class="label">OUR APPROACH</p>
+          <h2 class="h2">Data-Driven Strategy<br />That Delivers</h2>
+          <p>Every campaign is built on research, testing, and proven frameworks. We don't guess — we measure, optimize, and scale what fills your batches.</p>
+          <div class="chips">
+            <span>ROI Optimization</span>
+            <span>Performance Focused</span>
+            <span>Lead Conversion</span>
+            <span>Data Driven</span>
+            <span>Batch Growth</span>
+            <span>Strategic Scale</span>
+          </div>
+        </div>
+        <div class="approach__panel">
+          <div class="ticker">
+            <div class="ticker__inner">
+              <span>ADS • FUNNELS • CREATIVES • LEADS • </span>
+              <span>ADS • FUNNELS • CREATIVES • LEADS • </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section class="section showcase">
+      <div class="container">
+        <p class="label">WHAT WE DELIVER</p>
+        <h2 class="h2 h2--center">Solutions in Every Box</h2>
+        <div class="showcase-grid">
+          <article class="showcase-box">
+            <span class="showcase-box__tag">ADS • ADS • ADS</span>
+            <h3>Performance Marketing</h3>
+            <p>High-converting campaigns across every major platform — built for coaching enrollments, not vanity clicks.</p>
+            <div class="tags-row"><span>Facebook Ads</span><span>Google Ads</span></div>
+          </article>
+          <article class="showcase-box showcase-box--highlight">
+            <span class="showcase-box__tag">COPY • COPY • COPY</span>
+            <h3>High Converting Ad Copy</h3>
+            <p>Hooks, headlines, and scripts written to stop the scroll and drive clicks — tailored for coaching offers and enrollment goals.</p>
+            <div class="tags-row"><span>Ad Scripts</span><span>Headlines</span><span>VSL Copy</span></div>
+          </article>
+          <article class="showcase-box">
+            <span class="showcase-box__tag">DESIGN • DESIGN • DESIGN</span>
+            <h3>Creative Design</h3>
+            <p>Scroll-stopping visuals and ad creatives from brand identity to campaign assets that match your copy.</p>
+            <div class="tags-row"><span>Social Media Ads</span><span>Videos</span></div>
+          </article>
+          <article class="showcase-box">
+            <span class="showcase-box__tag">AUTOMATE • AUTOMATE</span>
+            <h3>Automation</h3>
+            <p>Automate follow-ups and lead routing. Focus on delivering quality while our systems handle the rest.</p>
+            <div class="tags-row"><span>CRM</span><span>Lead Gen</span><span>WhatsApp Flows</span></div>
+          </article>
+          <article class="showcase-box">
+            <span class="showcase-box__tag">WEB • WEB • WEB</span>
+            <h3>Web & Funnels</h3>
+            <p>Smooth online experiences that turn ad clicks into booked calls and paid enrollments.</p>
+            <div class="tags-row"><span>Landing Pages</span><span>VSL Funnels</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+      <div class="container">
+        <p class="label">HOW IT WORKS</p>
+        <h2 class="h2 h2--center">Our Proven Process</h2>
+        <div class="process-grid">
+          <article class="process-card">
+            <span class="process-card__time">Week 1</span>
+            <span class="process-card__big">01</span>
+            <h3>Strategy & Audit</h3>
+            <p>Deep dive into your coaching offer, competitors, and market. We find the biggest growth opportunities.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-card__time">Week 2–3</span>
+            <span class="process-card__big">02</span>
+            <h3>Campaign Setup</h3>
+            <p>Custom funnels, ad creatives, landing pages, and tracking configured for maximum performance.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-card__time">Week 4–8</span>
+            <span class="process-card__big">03</span>
+            <h3>Test & Optimize</h3>
+            <p>Rigorous A/B testing across audiences and creatives. We double down on what works.</p>
+          </article>
+          <article class="process-card">
+            <span class="process-card__time">Month 3+</span>
+            <span class="process-card__big">04</span>
+            <h3>Scale & Growth</h3>
+            <p>Proven campaigns scaled aggressively while maintaining or improving cost per enrollment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section section--alt" id="why">
+      <div class="container">
+        <p class="label">THE DIFFERENCE</p>
+        <h2 class="h2 h2--center">Why Choose NXTSTOCK</h2>
+        <div class="vs-grid">
+          <div class="vs vs--no">
+            <h3>Other Agencies</h3>
+            <ul>
+              <li>Slow response (24–48hrs)</li>
+              <li>No reporting transparency</li>
+              <li>Generic strategies for all industries</li>
+              <li>Hidden fees & upsells</li>
+              <li>Not built for coaching sales cycles</li>
+              <li>Poor communication</li>
+            </ul>
+          </div>
+          <div class="vs vs--yes">
+            <h3>NXTSTOCK</h3>
+            <ul>
+              <li>Under 4-hour response time</li>
+              <li>Real-time performance reporting</li>
+              <li>Custom-built coaching campaigns</li>
+              <li>Transparent pricing, no surprises</li>
+              <li>Senior coaching marketing experts</li>
+              <li>Dedicated support & strategy calls</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <div class="about__img">
+          <div class="about__avatar">PJ</div>
+          <p>Meet <strong>Parvesh Jangra</strong></p>
+        </div>
+        <div class="about__copy">
+          <p class="label">WHO WE ARE</p>
+          <h2 class="h2">We're Performance Marketing Experts</h2>
+          <p>
+            We are a performance-driven agency focused on scalable growth, predictable lead generation, and revenue for <strong>coaching businesses only</strong>. Strategy first, execution second, scale third.
+          </p>
+          <p>
+            Unlike traditional agencies that focus on vanity metrics, we build data-backed systems with one goal: sustainable enrollments and predictable revenue growth.
+          </p>
+          <p class="about__tagline">We don't just run ads — we build growth engines for coaches.</p>
+          <div class="about__stats">
+            <div><b>20+</b><span>Coaches scaled</span></div>
+            <div><b>₹12Cr+</b><span>Ad spend managed</span></div>
+            <div><b>100%</b><span>Coaching focus</span></div>
+          </div>
+          <a href="#lead-form" class="btn btn--gradient">Let's Work Together →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUCCESS STORIES — hidden for now (restore when ready) -->
+    <!--
+    <section class="section" id="stories">
+      <div class="container">
+        <p class="label">✦ CLIENT TESTIMONIALS</p>
+        <h2 class="h2 h2--center">Coaches Trust <span class="text-gradient">Nxt Stock</span></h2>
+        <p class="sub center">Hear directly from the brands we've helped scale.</p>
+        <div class="reviews">
+          <article class="review">
+            <div class="stars">★★★★★ <span>5.0</span></div>
+            <h4>Business Coach</h4>
+            <p>Online programs · Delhi</p>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★ <span>5.0</span></div>
+            <h4>Stock Market Mentor</h4>
+            <p>Founder · Online coaching</p>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★ <span>5.0</span></div>
+            <h4>Coaching Institute</h4>
+            <p>Offline + online batches</p>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★ <span>5.0</span></div>
+            <h4>Trading Educator</h4>
+            <p>Founder · Tradings niche</p>
+          </article>
+        </div>
+
+        <p class="label">SUCCESS STORIES</p>
+        <h2 class="h2 h2--center">Client <span class="text-gradient">Feedback</span></h2>
+        <div class="video-row">
+          <div class="video-box"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Story 1" loading="lazy" allowfullscreen></iframe></div>
+          <div class="video-box"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Story 2" loading="lazy" allowfullscreen></iframe></div>
+          <div class="video-box"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Story 3" loading="lazy" allowfullscreen></iframe></div>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- TRUSTED -->
+    <section class="trusted" id="trusted">
+      <div class="container">
+        <h2 class="h2 h2--center">Trusted By Leading Coaches</h2>
+        <p class="sub center">Helping coaching businesses scale with powerful digital marketing.</p>
+      </div>
+      <div class="slider">
+        <div class="slide-track">
+          <!-- Set 1 -->
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(1).jpg" alt="Client Logo 1" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(2).jpg" alt="Client Logo 2" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(3).jpg" alt="Client Logo 3" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(4).jpg" alt="Client Logo 4" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(5).jpg" alt="Client Logo 5" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(6).jpg" alt="Client Logo 6" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(7).jpg" alt="Client Logo 7" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(8).jpg" alt="Client Logo 8" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(9).jpg" alt="Client Logo 9" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(10).jpg" alt="Client Logo 10" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(11).jpg" alt="Client Logo 11" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS(12).jpg" alt="Client Logo 12" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS(13).jpeg" alt="Client Logo 13" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS(14).jpeg" alt="Client Logo 14" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS(15).jpeg" alt="Client Logo 15" /></div>
+          <!-- Set 2 (Duplicated for seamless loop) -->
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(1).jpg" alt="Client Logo 1" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(2).jpg" alt="Client Logo 2" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(3).jpg" alt="Client Logo 3" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(4).jpg" alt="Client Logo 4" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(5).jpg" alt="Client Logo 5" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(6).jpg" alt="Client Logo 6" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(7).jpg" alt="Client Logo 7" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(8).jpg" alt="Client Logo 8" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(9).jpg" alt="Client Logo 9" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(10).jpg" alt="Client Logo 10" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS%20(11).jpg" alt="Client Logo 11" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS(12).jpg" alt="Client Logo 12" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS(13).jpeg" alt="Client Logo 13" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS(14).jpeg" alt="Client Logo 14" /></div>
+          <div class="slide"><img src="img/CLIENT%20LOGOS(15).jpeg" alt="Client Logo 15" /></div>
+        </div>
+      </div>
+
+    <!-- FAQ -->
+    <section class="section section--alt faq" id="faq">
+      <div class="container faq__grid">
+        <div>
+          <p class="label">FREQUENTLY ASKED QUESTIONS</p>
+          <h2 class="h2">Got Questions?<br />We've Got Answers!</h2>
+        </div>
+        <div class="faq__list">
+          <details open>
+            <summary>Why should I choose Nxt Stock over other agencies?</summary>
+            <p>We're built only for coaching — not e-commerce or apps. Custom strategies, clear communication, and a proven track record with ₹12Cr+ in managed ad spend.</p>
+          </details>
+          <details>
+            <summary>What sets Nxt Stock apart?</summary>
+            <p>Coaching-only funnels, transparent reporting, and campaigns obsessed with cost per enrolled student — not vanity metrics.</p>
+          </details>
+          <details>
+            <summary>How do you ensure accurate reporting?</summary>
+            <p>Weekly dashboards with CPL, lead volume, ROAS, and enrollment tracking — transparent numbers you can trust.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" id="expert">
+      <div class="container final-cta__box">
+        <h2>Ready to Scale<br /><span class="text-gradient">Your Coaching Business?</span></h2>
+        <p>Book a free strategy call and discover your growth potential.<br />No commitment. Just results.</p>
+        <a href="#lead-form" class="btn btn--gradient btn--lg">Book Free Call →</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container contact__grid">
+        <div>
+          <p class="label">CONTACT</p>
+          <h2 class="h2">Get In Touch</h2>
+          <p class="contact__line"><strong>Parvesh Jangra</strong></p>
+          <p class="contact__line"><a href="mailto:parvesh0326@gmail.com">parvesh0326@gmail.com</a></p>
+          <p class="contact__line"><a href="mailto:bussinessx@nxtstock.in">bussinessx@nxtstock.in</a></p>
+          <p class="contact__line"><a href="tel:+919813212342">+91 98132 12342</a></p>
+        </div>
+        <div class="contact__cta">
+          <h3>Talk to an Expert</h3>
+          <a href="tel:+919813212342" class="btn btn--gradient">Call Now</a>
+          <a href="https://wa.me/919813212342?text=Hi%20Nxt%20Stock" class="btn btn--ghost" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <a href="#home" class="logo">NXTSTOCK</a>
+        <p>We help coaching brands grow through data-driven strategies, paid ads, and creative solutions that deliver measurable ROI.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Performance Marketing</a></li>
+          <li><a href="#services">Meta & Google Ads</a></li>
+          <li><a href="#services">Creative Design</a></li>
+          <li><a href="#services">Funnels & CRM</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!-- <li><a href="#stories">Testimonials</a></li> -->
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:bussinessx@nxtstock.in">bussinessx@nxtstock.in</a></li>
+          <li><a href="tel:+919813212342">+91 9813212342</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bot">
+      <p>© <span id="year"></span> Nxt Stock. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
