@@ -1,0 +1,304 @@
+@import "../styles.css";
+
+/* --- COURSE PAGE CUSTOM STYLES --- */
+
+/* Hero buttons */
+.hero__buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Pricing Card (Hero Side) */
+.pricing-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 20px;
+  padding: 2.25rem 1.85rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(124, 58, 237, 0.1);
+  overflow: hidden;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pricing-card__badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--grad);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 99px;
+  color: #fff;
+}
+
+.pricing-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.pricing-card__desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.pricing-card__price {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.5rem;
+}
+
+.price-old {
+  font-size: 1.15rem;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.price-new {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--cyan);
+}
+
+.price-discount {
+  background: rgba(74, 222, 128, 0.15);
+  color: var(--green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.pricing-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.85rem;
+}
+
+.pricing-card__features li {
+  font-size: 0.88rem;
+  margin-bottom: 0.75rem;
+  color: #e5e7eb;
+}
+
+/* Curriculum Section */
+.curriculum {
+  padding-top: 5rem;
+}
+
+.curriculum .section-desc {
+  max-width: 600px;
+  margin-inline: auto;
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 3.5rem;
+}
+
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.curriculum-card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.25rem;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.curriculum-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.curriculum-card__num {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  opacity: 0.15;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.curriculum-card h3 {
+  margin: 0 0 0.85rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.curriculum-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.curriculum-card ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.curriculum-card li {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  color: #d1d5db;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.feature-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  text-align: center;
+  transition: border-color 0.25s;
+}
+
+.feature-box:hover {
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+.feature-box__icon {
+  font-size: 2rem;
+  margin-bottom: 0.85rem;
+}
+
+.feature-box h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.feature-box p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Enrollment Form Section */
+.enroll-section {
+  padding: 6rem 0;
+}
+
+.enroll-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.enroll-info h2 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+.enroll-info p {
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+
+.enroll-badge {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.enroll-badge .icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.enroll-badge strong {
+  display: block;
+  font-size: 0.92rem;
+  margin-bottom: 0.2rem;
+}
+
+.enroll-badge span {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.enroll-form-container .lead-form {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  padding: 2.25rem 2rem;
+}
+
+.enroll-form-container .lead-form h3 {
+  font-size: 1.35rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* --- MOBILE RESPONSIVENESS OVERRIDES --- */
+@media (max-width: 960px) {
+  .hero__buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero__buttons .btn {
+    width: 100%;
+  }
+
+  .curriculum-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .enroll-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .enroll-info h2 {
+    font-size: 1.85rem;
+  }
+}

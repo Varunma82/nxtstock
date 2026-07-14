@@ -11,26 +11,24 @@ python3 -m http.server 8080
 
 Open [http://localhost:8080](http://localhost:8080)
 
-## Connect form to Google Sheets
+## Connect form to Email Notifications (via Google Apps Script)
 
-1. Create a [Google Sheet](https://sheets.google.com) with a tab named **Leads**.
-2. Add headers in row 1:
-
-   `Timestamp | Name | Phone | Email | City | Coaching Type | Niche | Monthly Revenue | Message | Source`
-
-3. **Extensions → Apps Script** — paste code from `google-apps-script/Code.gs`.
-4. **Deploy → New deployment → Web app**
-   - Execute as: **Me**
+1. Open your Google Sheet or a standalone Apps Script project.
+2. **Extensions → Apps Script** — paste the code from [Code.gs](file:///Users/varun/Downloads/Nxt%20Stock/google-apps-script/Code.gs).
+   - *Note:* The recipient email is configured in `Code.gs` via the `EMAIL_TO` constant (`parvesh0326@gmail.com`). You can change this to any email you prefer.
+3. **Deploy → New deployment → Web app**
+   - Execute as: **Me** (this is required so the script can send emails on your behalf)
    - Who has access: **Anyone**
-5. Copy the **Web App URL** into `config.js`:
+4. Copy the **Web App URL** into [config.js](file:///Users/varun/Downloads/Nxt%20Stock/config.js):
 
    ```js
    GOOGLE_SHEET_WEB_APP_URL: "https://script.google.com/macros/s/....../exec",
    ```
 
-6. Submit a test lead from the hero form and confirm a new row appears.
+5. Submit a test lead from the hero form. The submission will:
+   - Send an email notification with all the lead details to **parvesh0326@gmail.com**.
 
-> `mode: "no-cors"` is used so the form works from any domain without CORS errors. The browser won’t show the JSON response, but rows still append if the script is deployed correctly.
+> `mode: "no-cors"` is used so the form works from any domain without CORS errors. The browser won’t show the JSON response, but emails are sent if the script is deployed correctly.
 
 ## Customize
 
