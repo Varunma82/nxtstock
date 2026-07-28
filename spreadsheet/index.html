@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultimate Habit Tracker | Turn Your Life Into A Game</title>
+    <meta name="description"
+        content="The ultimate habit tracker for Excel and Google Sheets. Track daily, weekly, and monthly habits with a premium, gamified dashboard." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <div class="hero-background-glow"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge-container">
+                    <span class="badge premium-badge">Works With Microsoft Excel & Google Sheets</span>
+                </div>
+
+                <h1 class="hero-headline">
+                    Turn your life<br />
+                    <span class="text-italic highlight-text">into a game.</span>
+                </h1>
+
+                <p class="hero-subheadline">
+                    A simple habit tracker that helps you stay consistent and see real progress.
+                </p>
+
+                <div class="hero-visual">
+                    <div class="visual-wrapper">
+                        <video autoplay loop muted playsinline class="hero-gif">
+                            <source src="https://trackkar.store/assets/29.1a_Habit_Tracker_-_HeyMorning_xvccrj.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="reflection"></div>
+                    </div>
+                </div>
+
+                <div class="benefits-container">
+                    <ul class="benefits-list">
+                        <li><span class="check-icon">✔</span> One-time purchase</li>
+                        <li><span class="check-icon">✔</span> No subscriptions</li>
+                        <li><span class="check-icon">✔</span> Editable anytime</li>
+                        <li><span class="check-icon">✔</span> Lifetime access</li>
+                    </ul>
+                </div>
+
+                <div class="cta-container">
+                    <a href="#" onclick="openCheckoutModal(event)" class="btn btn-primary">
+                        Download Habit Tracker
+                        <span class="btn-shine"></span>
+                    </a>
+                    <p class="cta-subtext">Instant download • One-time payment</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-headline">
+                Why staying consistent feels impossible?
+            </h2>
+            <p class="section-subtext">
+                You don't fail at habits because you're lazy.<br />
+                You fail because progress is hard to see.
+            </p>
+
+            <ul class="problem-list">
+                <li class="problem-item">
+                    <span class="cross-icon">✕</span>
+                    You start strong, then miss one day
+                </li>
+                <li class="problem-item">
+                    <span class="cross-icon">✕</span>
+                    Tracking stops, motivation fades
+                </li>
+                <li class="problem-item">
+                    <span class="cross-icon">✕</span>
+                    Progress disappears, habits feel pointless
+                </li>
+            </ul>
+
+            <div class="quote-container">
+                <blockquote class="problem-quote">
+                    "You do not rise to the level of your goals.<br />
+                    You fall to the level of your systems."
+                </blockquote>
+                <cite class="quote-author">— James Clear, Atomic Habits</cite>
+            </div>
+
+            <p class="solution-intro">
+                That's why systems matter more than motivation.
+            </p>
+
+            <div class="solution-block">
+                <h3 class="solution-headline">
+                    This habit tracker makes progress visible —<br />so consistency becomes easier.
+                </h3>
+
+                <p class="heres-how-text">Here's how</p>
+
+                <div class="slider-instruction">
+                    <span>Swipe to explore</span>
+                    <span class="arrow-anim">→</span>
+                </div>
+
+                <div class="slider-container">
+                    <!-- Slide 1 -->
+                    <div class="slide-item">
+                        <p class="slide-caption">
+                            All Your Habits<br />in One Dashboard.
+                        </p>
+                        <img src="https://trackkar.store/assets/sl1.png" alt="Feature 1" class="slide-image" />
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide-item">
+                        <p class="slide-caption">Every checkmark<br />builds momentum.</p>
+                        <img src="https://trackkar.store/assets/sl2.png" alt="Feature 2" class="slide-image" />
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide-item">
+                        <p class="slide-caption">See progress grow<br />day by day.</p>
+                        <img src="https://trackkar.store/assets/sl3.png" alt="Feature 3" class="slide-image" />
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="slide-item">
+                        <p class="slide-caption">
+                            View Summary of<br />Your Progress.
+                        </p>
+                        <img src="https://trackkar.store/assets/sl4.png" alt="Feature 4" class="slide-image" />
+                    </div>
+                    <!-- Spacer for scroll padding -->
+                    <div class="slide-spacer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="solution-headline" style="margin-bottom: var(--spacing-md)">
+                Everything you need to<br />stay consistent
+            </h2>
+
+            <ul class="problem-list">
+                <li class="problem-item">
+                    <span class="check-circle-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </span>
+                    Daily Habit Tracking
+                </li>
+                <li class="problem-item">
+                    <span class="check-circle-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </span>
+                    Automated Progress Charts
+                </li>
+                <li class="problem-item">
+                    <span class="check-circle-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </span>
+                    Weekly & Monthly View
+                </li>
+                <li class="problem-item">
+                    <span class="check-circle-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </span>
+                    Add Upto 99 Habits
+                </li>
+                <li class="problem-item">
+                    <span class="check-circle-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </span>
+                    Automatic Streaks
+                </li>
+                <li class="problem-item">
+                    <span class="check-circle-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </span>
+                    Works with Google Sheets & Excel
+                </li>
+                <li class="problem-item">
+                    <span class="check-circle-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </span>
+                    Editable Offline
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="solution-headline" style="margin-bottom: var(--spacing-sm)">
+                What our users say
+            </h2>
+
+            <div class="reviews-slider">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-content">
+                        As a college student, my routine was very messy. After using this
+                        tracker, I finally have a clear view of my study hours, screen
+                        time and health habits. It keeps me honest and consistent.
+                    </div>
+                    <div class="review-author">Prem Patel</div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-content">
+                        Using this habit tracker for the last 2 months has completely
+                        changed how I look at my day. The visual charts and weekly
+                        breakdowns make it so easy to see where I am slacking and where I
+                        am improving.
+                    </div>
+                    <div class="review-author">Sneha Malgaonkar</div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-content">
+                        I have tried many apps before, but this simple Google Sheet worked
+                        best for me. I track my workouts, reading and sleep in one place,
+                        and checking those boxes every night feels very satisfying.
+                    </div>
+                    <div class="review-author">Samarth</div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-content">
+                        I run a small business and was struggling to manage personal
+                        habits along with work. This sheet gives me a clean dashboard of
+                        my daily habits, and the monthly percentage view shows exactly how
+                        disciplined I was.
+                    </div>
+                    <div class="review-author">Arjun Patel</div>
+                </div>
+
+                <div class="review-spacer"></div>
+            </div>
+
+            <div class="review-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section">
+        <div class="container">
+            <h2 class="final-headline">Ready to stay consistent?</h2>
+            <p class="final-subheadline">
+                Download the habit tracker and start in under 2 minutes.
+            </p>
+
+            <a href="#" onclick="openCheckoutModal(event)" class="btn btn-primary final-btn">
+                <span class="sticky-main-text">Download Now</span>
+                <span class="sticky-micro-text">Instant Access</span>
+                <span class="btn-shine"></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="faq-headline">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <!-- Q1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is this a one-time payment?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Yes. You pay once and get lifetime access. No subscriptions.
+                        </p>
+                    </div>
+                </div>
+                <!-- Q2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What happens after I purchase?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            You'll instantly receive a download link on your mail to access
+                            the habit tracker. If not received, mail us at
+                            hr@nxtstock.in
+                        </p>
+                    </div>
+                </div>
+                <!-- Q3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Does this work on mobile?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Yes. You can use it on mobile and desktop using Google Sheets or
+                            Excel.
+                        </p>
+                    </div>
+                </div>
+                <!-- Q4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I use this offline?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. You can use this offline using Microsoft Excel.</p>
+                    </div>
+                </div>
+                <!-- Q5 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I edit or customize the habits?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. You can add, remove, or edit habits anytime.</p>
+                    </div>
+                </div>
+                <!-- Q6 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What if I need help?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            You can reach out at hr@nxtstock.in and we will be
+                            happy to help.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="contact.html">Contact Us</a>
+                <a href="terms.html">Terms and Conditions</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="refund.html">Refund Policy</a>
+            </div>
+            <p class="copyright">©️ 2026 NxtStockStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sticky Bottom CTA -->
+    <div class="sticky-cta">
+        <div class="container">
+            <a href="#" onclick="openCheckoutModal(event)" class="btn btn-primary sticky-btn">
+                <span class="sticky-main-text">Download Now</span>
+                <span class="sticky-micro-text">Instant Access</span>
+                <span class="btn-shine"></span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-modal-content">
+            <span class="checkout-modal-close" onclick="closeCheckoutModal()">&times;</span>
+            
+            <!-- Default Form View -->
+            <div id="checkoutFormContainer">
+                <h2 id="modalHeader">Complete Your Purchase</h2>
+                <p class="checkout-modal-subtext" id="modalSubtext">Files will be sent to this email.</p>
+                <form id="checkoutForm" onsubmit="handleCheckout(event)">
+
+                    <div class="checkout-scrollable-content">
+                        <!-- Step 1: Details & Tiers -->
+                        <div id="checkoutStep1">
+                            <div class="checkout-form-group">
+                                <input type="email" id="customerEmail" name="email" required placeholder="Email Address *"
+                                    class="checkout-input" />
+                            </div>
+                            <div class="checkout-form-group">
+                                <div class="phone-input-wrapper">
+                                    <span class="phone-prefix">+91</span>
+                                    <input type="tel" id="customerPhone" name="phone" required placeholder="Phone number *"
+                                        class="checkout-input-noborder" oninput="sanitizePhoneInput(this)" />
+                                </div>
+                                <p id="phoneError" class="error-message"></p>
+                            </div>
+
+                            <div class="tier-container">
+                                <!-- 1 Month Tier -->
+                                <div class="tier-card" id="tier-card-1month" onclick="selectTier('1month')">
+                                    <input type="radio" name="tier" id="tier-1month" class="tier-radio" value="39">
+                                    <div class="tier-info">
+                                        <span class="tier-name">1 Month Access</span>
+                                    </div>
+                                    <div class="tier-price-wrapper">
+                                        <span class="tier-price">₹39</span>
+                                    </div>
+                                </div>
+
+                                <!-- 6 Months Tier -->
+                                <div class="tier-card" id="tier-card-6months" onclick="selectTier('6months')">
+                                    <input type="radio" name="tier" id="tier-6months" class="tier-radio" value="99">
+                                    <div class="tier-info">
+                                        <span class="tier-name">6 Months Access</span>
+                                    </div>
+                                    <div class="tier-price-wrapper">
+                                        <span class="tier-price">₹99</span>
+                                    </div>
+                                </div>
+
+                                <!-- Lifetime Tier (Default) -->
+                                <div class="tier-card full-width selected" id="tier-card-lifetime" onclick="selectTier('lifetime')">
+                                    <div class="tier-badge" style="background: #10b981;">Best Value</div>
+                                    <input type="radio" name="tier" id="tier-lifetime" class="tier-radio" value="149" checked>
+                                    <div class="tier-info">
+                                        <span class="tier-name">Lifetime Access</span>
+                                        <div class="tier-gift">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                                                <rect x="2" y="7" width="20" height="5"></rect>
+                                                <line x1="12" y1="22" x2="12" y2="7"></line>
+                                                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                                                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+                                            </svg>
+                                            Includes Goal Planner + Weight Loss Tracker
+                                        </div>
+                                    </div>
+                                    <div class="tier-price-wrapper">
+                                        <span class="tier-price">₹149</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Add-ons -->
+                        <div id="checkoutStep2" style="display: none;">
+                            <p class="addons-intro">Recommended for you</p>
+                            <div class="addons-container">
+                                <!-- Expense Tracker Addon -->
+                                <div class="addon-card" id="addon-card-expense" onclick="toggleAddon('expense', 99)">
+                                    <div class="addon-main-info" onclick="event.stopPropagation(); openAddonModal('expense')">
+                                        <img src="https://trackkar.store/assets/Expense1.webp" alt="Expense Tracker" class="addon-img">
+                                        <div class="addon-text">
+                                            <span class="addon-name">Ultimate Expense Tracker & Budget Planner</span>
+                                            <div class="addon-price-row">
+                                                <span class="addon-price">₹99</span>
+                                                <span class="addon-old-price">₹299</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="addon-action">
+                                        <div class="addon-checkbox-container">
+                                            <input type="checkbox" id="addon-checkbox-expense" class="addon-checkbox" onclick="event.stopPropagation(); toggleAddon('expense', 99)">
+                                            <span class="addon-checkbox-btn">Add to My Order</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Workout Planner Addon -->
+                                <div class="addon-card" id="addon-card-workout" onclick="toggleAddon('workout', 99)">
+                                    <div class="addon-main-info" onclick="event.stopPropagation(); openAddonModal('workout')">
+                                        <img src="https://trackkar.store/assets/workout.webp" alt="Workout Planner" class="addon-img">
+                                        <div class="addon-text">
+                                            <span class="addon-name">Ultimate Workout Planner & Gym Checklist</span>
+                                            <div class="addon-price-row">
+                                                <span class="addon-price">₹99</span>
+                                                <span class="addon-old-price">₹299</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="addon-action">
+                                        <div class="addon-checkbox-container">
+                                            <input type="checkbox" id="addon-checkbox-workout" class="addon-checkbox" onclick="event.stopPropagation(); toggleAddon('workout', 99)">
+                                            <span class="addon-checkbox-btn">Add to My Order</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Checkout Summary -->
+                    <div class="checkout-footer">
+                        <div class="checkout-summary" id="checkoutSummary">
+                            <div class="summary-row">
+                                <span class="product-name" id="selectedTierLabel">Ultimate Habit Tracker (Lifetime Access)</span>
+                                <span id="summaryPrice">₹149</span>
+                            </div>
+                            <div id="addonsSummary"></div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="totalPrice">₹149</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="btn btn-primary checkout-submit-btn">
+                            Proceed to Payment
+                            <span class="btn-shine"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success Overlay View (Hidden by default) -->
+            <div id="checkoutSuccessView" style="display: none; text-align: center; padding: 20px 10px;">
+                <div style="width: 72px; height: 72px; background: rgba(16, 185, 129, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; color: #10B981;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <h2 style="color: var(--text-primary); margin-bottom: 8px; font-family: 'Inter', sans-serif;">Payment Successful!</h2>
+                <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.5; margin-bottom: 24px;">
+                    Thank you for your purchase! We will deliver the product files directly to your email <strong id="successEmailDisplay">-</strong> within <strong>3 hours</strong>.
+                </p>
+                <div style="background: var(--bg-light); border: 1px solid var(--glass-border); padding: 12px; border-radius: 8px; font-size: 13px; color: var(--text-secondary);">
+                    Payment ID: <span id="successPaymentId" style="font-family: monospace; font-weight: bold; color: var(--text-primary);">-</span>
+                </div>
+                <button onclick="closeCheckoutModal()" class="btn btn-primary" style="margin-top: 24px; padding: 12px 30px; font-size: 1rem; width: auto; max-width: 100%;">
+                    Close Window
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Add-on Details Modal -->
+    <div id="addonModal" class="addon-modal">
+        <div class="addon-modal-content">
+            <div class="addon-modal-header">
+                <h3 class="addon-modal-title" id="modalTitle">Ultimate Goal Planner & Tracker Visual Board</h3>
+                <span class="addon-modal-close" onclick="closeAddonModal()">&times;</span>
+            </div>
+            <div id="modalMedia">
+                <img src="https://trackkar.store/assets/goal_planner.png" alt="Details" class="addon-modal-img" id="modalImg">
+            </div>
+            <p class="addon-modal-text" id="modalDesc">
+                Plan smarter and achieve more with our digital Goal Planner for Google Sheets and Excel in Dark Mode.
+                Track goals, monitor progress, and stay motivated with automated features and visual dashboards!
+                <br><br>
+                <strong>INSTANT DOWNLOAD | 1 TAB | AUTOMATED DASHBOARD</strong>
+            </p>
+        </div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
