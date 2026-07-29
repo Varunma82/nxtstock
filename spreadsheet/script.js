@@ -399,6 +399,16 @@ function handleCheckout(event) {
             document.getElementById('successEmailDisplay').textContent = email;
             document.getElementById('successPaymentId').textContent = response.razorpay_payment_id;
 
+            // Track Meta Pixel Purchase Event
+            if (typeof fbq === 'function') {
+                fbq('track', 'Purchase', {
+                    value: total,
+                    currency: 'INR',
+                    content_name: `Habit Tracker (${tierLabel})`,
+                    content_category: 'Spreadsheet Template'
+                });
+            }
+
             // Reset payment button state
             if (submitBtn) {
                 submitBtn.disabled = false;
@@ -414,6 +424,16 @@ function handleCheckout(event) {
             color: "#4A0E4E" // Theme color matching layout
         }
     };
+
+    // Track Meta Pixel InitiateCheckout Event
+    if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+            value: total,
+            currency: 'INR',
+            content_name: `Habit Tracker (${tierLabel})`,
+            content_category: 'Spreadsheet Template'
+        });
+    }
 
     const rzp = new Razorpay(options);
     rzp.open();
