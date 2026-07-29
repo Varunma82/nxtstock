@@ -4,8 +4,8 @@
  */
 window.NXT_STOCK_CONFIG = {
   GOOGLE_SHEET_WEB_APP_URL: "https://script.google.com/macros/s/AKfycbxqHUtuUsbEU-rlKAURGtQ8wYhP5jJ-J1Yz4n23c60UPYv0usCXBikYtYEUBfj78DwmkA/exec",
-  // Enter your Razorpay Key ID here (rzp_test_... or rzp_live_...) from Razorpay Dashboard settings
-  RAZORPAY_KEY_ID: "rzp_test_TIdDcfVUHTQwh0", 
-  // Company name shown in Razorpay payment modal
+  // Cashfree Production App ID
+  CASHFREE_APP_ID: "1352243daf306e1276911f673663422531", 
+  // Company name shown in payment forms
   COMPANY_NAME: "Nxt Stock",
 };

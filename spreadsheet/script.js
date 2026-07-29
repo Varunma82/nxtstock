@@ -1,10 +1,18 @@
 let currentStep = 1;
 let selectedAddons = {};
+let cashfree;
+
+try {
+    cashfree = Cashfree({ mode: "production" });
+} catch (e) {
+    console.error("Cashfree SDK not loaded:", e);
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     initReviewsSlider();
     initStickyCta();
     initFaqAccordion();
+    checkPaymentStatus();
 });
 
 // FAQ Accordion toggles
@@ -94,7 +102,7 @@ function initStickyCta() {
 
 // Checkout Modal actions
 function openCheckoutModal(event) {
-    event.preventDefault();
+    if (event) event.preventDefault();
     document.getElementById("checkoutModal").style.display = "block";
     document.body.style.overflow = "hidden";
     resetCheckout();
@@ -319,14 +327,13 @@ function handleCheckout(event) {
         return;
     }
 
-    // Step 2: Launch Razorpay Checkout Popup
+    // Step 2: Launch Cashfree Checkout
     const phone = document.getElementById("customerPhone").value;
     const email = document.getElementById("customerEmail").value;
     const radio = document.querySelector('input[name="tier"]:checked');
     const tierValue = radio.value;
     const tierId = radio.id.replace('tier-', '');
 
-    const key = window.NXT_STOCK_CONFIG?.RAZORPAY_KEY_ID || "rzp_test_51NgC159ZJ4t2K9";
     const webAppUrl = window.NXT_STOCK_CONFIG?.GOOGLE_SHEET_WEB_APP_URL;
 
     // Get selected tier label and active addons
@@ -351,92 +358,172 @@ function handleCheckout(event) {
         total += selectedAddons[id];
     }
 
-    const companyName = window.NXT_STOCK_CONFIG?.COMPANY_NAME || "NxtStockStore";
+    const submitBtn = document.getElementById('submitBtn');
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Preparing Payment...';
+    }
 
-    const options = {
-        key: key,
-        amount: total * 100, // Amount in paise (INR subunit)
-        currency: "INR",
-        name: companyName,
-        description: `Habit Tracker (${tierLabel}) ${addonsText ? '+ ' + addonsText : ''}`,
-        image: "https://trackkar.store/assets/sl1.png",
-        handler: async function (response) {
-            // Success Callback: Disable payment button and show loading text
-            const submitBtn = document.getElementById('submitBtn');
-            if (submitBtn) {
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Confirming Order...';
-            }
+    if (webAppUrl) {
+        let returnUrl = window.location.origin + window.location.pathname + "?cf_order_id={order_id}";
+        // Cashfree production API strictly requires HTTPS return URLs. If testing locally on HTTP, redirect to production.
+        if (window.location.protocol === "http:") {
+            returnUrl = "https://www.nxtstock.in/spreadsheet/?cf_order_id={order_id}";
+        }
+        const payload = {
+            type: "create_cashfree_order",
+            amount: total,
+            name: "Customer",
+            email: email,
+            phone: phone,
+            tierLabel: tierLabel,
+            addons: addonsText,
+            return_url: returnUrl
+        };
 
-            // Post transaction data to Google Sheets Apps Script Web App URL
-            if (webAppUrl) {
-                const payload = {
-                    type: "purchase",
-                    timestamp: new Date().toISOString(),
-                    email: email,
-                    phone: phone,
-                    tierLabel: tierLabel,
-                    addons: addonsText,
-                    amount: total,
-                    paymentId: response.razorpay_payment_id
-                };
+        try {
+            fetch(webAppUrl, {
+                method: "POST",
+                headers: { "Content-Type": "text/plain" },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(async (result) => {
+                if (result.ok && result.payment_session_id) {
+                    // Track Meta Pixel InitiateCheckout Event
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'InitiateCheckout', {
+                            value: total,
+                            currency: 'INR',
+                            content_name: `Habit Tracker (${tierLabel})`,
+                            content_category: 'Spreadsheet Template'
+                        });
+                    }
 
-                try {
-                    await fetch(webAppUrl, {
-                        method: "POST",
-                        mode: "no-cors",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(payload)
+                    // Open Cashfree checkout redirect
+                    await cashfree.checkout({
+                        paymentSessionId: result.payment_session_id
                     });
-                } catch (err) {
-                    console.error("Error logging transaction to spreadsheet:", err);
+                } else {
+                    alert("Payment initiation failed: " + (result.error || "Unknown error"));
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Proceed to Payment';
+                    }
                 }
-            }
-
-            // Display Checkout Success Page
-            document.getElementById('checkoutFormContainer').style.display = 'none';
-            document.getElementById('checkoutSuccessView').style.display = 'block';
-            document.getElementById('successEmailDisplay').textContent = email;
-            document.getElementById('successPaymentId').textContent = response.razorpay_payment_id;
-
-            // Track Meta Pixel Purchase Event
-            if (typeof fbq === 'function') {
-                fbq('track', 'Purchase', {
-                    value: total,
-                    currency: 'INR',
-                    content_name: `Habit Tracker (${tierLabel})`,
-                    content_category: 'Spreadsheet Template'
-                });
-            }
-
-            // Reset payment button state
+            })
+            .catch(err => {
+                console.error("Error parsing checkout response:", err);
+                alert("Failed to reach payment server. Please try again.");
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Proceed to Payment';
+                }
+            });
+        } catch (err) {
+            console.error("Error posting to Web App:", err);
+            alert("Connection error. Please try again.");
             if (submitBtn) {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Proceed to Payment';
             }
-        },
-        prefill: {
-            name: "Customer",
-            email: email,
-            contact: "+91" + phone
-        },
-        theme: {
-            color: "#4A0E4E" // Theme color matching layout
         }
-    };
-
-    // Track Meta Pixel InitiateCheckout Event
-    if (typeof fbq === 'function') {
-        fbq('track', 'InitiateCheckout', {
-            value: total,
-            currency: 'INR',
-            content_name: `Habit Tracker (${tierLabel})`,
-            content_category: 'Spreadsheet Template'
-        });
+    } else {
+        alert("Configuration Error: Payment gateway URL is not configured.");
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Proceed to Payment';
+        }
     }
+}
 
-    const rzp = new Razorpay(options);
-    rzp.open();
+// Check Cashfree Payment Status on page load
+async function checkPaymentStatus() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderId = urlParams.get('cf_order_id');
+    
+    if (orderId) {
+        // Open modal
+        openCheckoutModal(null);
+        
+        // Hide form step contents
+        const formContainer = document.getElementById('checkoutFormContainer');
+        if (formContainer) {
+            formContainer.style.display = 'none';
+        }
+        
+        // Create verification loader
+        let verifyDiv = document.getElementById('cfVerifyView');
+        if (!verifyDiv) {
+            verifyDiv = document.createElement('div');
+            verifyDiv.id = 'cfVerifyView';
+            verifyDiv.style.textAlign = 'center';
+            verifyDiv.style.padding = '40px 20px';
+            verifyDiv.innerHTML = `
+                <div class="loading-spinner" style="border: 4px solid rgba(255, 255, 255, 0.1); border-left-color: var(--accent-color); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px auto;"></div>
+                <h3 style="color: var(--text-primary); margin-bottom: 8px; font-family: 'Inter', sans-serif;">Verifying Your Payment</h3>
+                <p style="color: var(--text-secondary); font-size: 14px;">Please wait while we confirm your transaction...</p>
+            `;
+            if (!document.getElementById('cfSpinStyle')) {
+                const style = document.createElement('style');
+                style.id = 'cfSpinStyle';
+                style.innerHTML = `@keyframes spin { to { transform: rotate(360deg); } }`;
+                document.head.appendChild(style);
+            }
+            const modalContent = document.querySelector('.checkout-modal-content');
+            if (modalContent) {
+                modalContent.appendChild(verifyDiv);
+            }
+        } else {
+            verifyDiv.style.display = 'block';
+        }
+        
+        const webAppUrl = window.NXT_STOCK_CONFIG?.GOOGLE_SHEET_WEB_APP_URL;
+        if (webAppUrl) {
+            try {
+                const response = await fetch(webAppUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "text/plain" },
+                    body: JSON.stringify({
+                        type: "check_cashfree_order",
+                        order_id: orderId
+                    })
+                });
+                const result = await response.json();
+                
+                if (verifyDiv) {
+                    verifyDiv.style.display = 'none';
+                }
+                
+                if (result.ok && result.status === "PAID") {
+                    document.getElementById('checkoutFormContainer').style.display = 'none';
+                    document.getElementById('checkoutSuccessView').style.display = 'block';
+                    document.getElementById('successEmailDisplay').textContent = result.email || "your email";
+                    document.getElementById('successPaymentId').textContent = orderId;
+                    
+                    // Clean URL query parameters
+                    const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                    window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+                } else {
+                    alert("Payment check failed: " + (result.status || "Not PAID"));
+                    if (formContainer) {
+                        formContainer.style.display = 'block';
+                    }
+                    closeCheckoutModal();
+                }
+            } catch (err) {
+                console.error("Error checking order status:", err);
+                alert("Error validating payment status. Please try again or contact support.");
+                if (verifyDiv) {
+                    verifyDiv.style.display = 'none';
+                }
+                if (formContainer) {
+                    formContainer.style.display = 'block';
+                }
+                closeCheckoutModal();
+            }
+        }
+    }
 }
 
 // Explicit window registration for global event handlers
@@ -448,3 +535,4 @@ window.openAddonModal = openAddonModal;
 window.closeAddonModal = closeAddonModal;
 window.sanitizePhoneInput = sanitizePhoneInput;
 window.handleCheckout = handleCheckout;
+window.checkPaymentStatus = checkPaymentStatus;
